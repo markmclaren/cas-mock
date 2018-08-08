@@ -34,7 +34,6 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import org.arp.javautil.io.IOUtil;
 
 /**
  *
@@ -44,8 +43,7 @@ public abstract class AbstractValidateServlet extends HttpServlet {
 
     private String responsePath;
     private String responseWithPGTIOUPath;
-    private String response;
-    private String responseWithPGTIOU;
+    private XmlService xmlService = new XmlService();
  
     // Create a trust manager that does not validate certificate chains
     private TrustManager[] trustAllCerts = new TrustManager[]{
@@ -73,25 +71,13 @@ public abstract class AbstractValidateServlet extends HttpServlet {
     }
 
     @Override
-    public void init() throws ServletException {
-        try {
-            this.response = IOUtil.readResourceAsString(getClass(), this.responsePath);
-        } catch (IOException ex) {
-            throw new AssertionError(ex);
-        }
-
+    public void init() throws ServletException {       
         try {
             SSLContext sc = SSLContext.getInstance("SSL");
             sc.init(null, trustAllCerts, new java.security.SecureRandom());
             HttpsURLConnection.setDefaultSSLSocketFactory(sc.getSocketFactory());
         } catch (KeyManagementException ex) {
         } catch (NoSuchAlgorithmException ex) {
-        }
-
-        try {
-            this.responseWithPGTIOU = IOUtil.readResourceAsString(getClass(), this.responseWithPGTIOUPath);
-        } catch (IOException ex) {
-            throw new AssertionError(ex);
         }
     }
 
@@ -100,9 +86,9 @@ public abstract class AbstractValidateServlet extends HttpServlet {
         String pgtUrlStr = req.getParameter("pgtUrl");
         resp.setContentType("text/xml;charset=UTF-8");
         if (pgtUrlStr == null) {
-            resp.getWriter().write(this.response);
+            resp.getWriter().write(xmlService.getResponse(responsePath));
         } else {
-            resp.getWriter().write(this.responseWithPGTIOU);
+            resp.getWriter().write(xmlService.getResponse(responseWithPGTIOUPath));
             URL pgtUrl = new URL(pgtUrlStr);
             doConnect(pgtUrl);
 

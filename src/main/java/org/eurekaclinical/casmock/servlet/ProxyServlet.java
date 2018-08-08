@@ -25,7 +25,6 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import org.arp.javautil.io.IOUtil;
 
 /**
  * Implements CAS <code>/proxy</code>. It always returns the same response.
@@ -33,20 +32,11 @@ import org.arp.javautil.io.IOUtil;
  * @author Andrew Post
  */
 public class ProxyServlet extends HttpServlet {
-    private String response;
-
-    @Override
-    public void init() throws ServletException {
-        try {
-            this.response = IOUtil.readResourceAsString(getClass(), "/xml/proxyResponse.xml");
-        } catch (IOException ex) {
-            throw new AssertionError(ex);
-        }
-    }
-    
+    private XmlService xmlService = new XmlService();
+        
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         resp.setContentType("text/xml;charset=UTF-8");        
-        resp.getWriter().write(this.response);
+        resp.getWriter().write(xmlService.getResponse("xml/proxyResponse.xml"));
     }
 }

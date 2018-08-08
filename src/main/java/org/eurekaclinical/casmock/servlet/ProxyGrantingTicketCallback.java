@@ -34,7 +34,7 @@ public class ProxyGrantingTicketCallback extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            out.println("Hello");
+            //out.println("Hello");
             System.out.println(getFullURL(request));
         }
     }

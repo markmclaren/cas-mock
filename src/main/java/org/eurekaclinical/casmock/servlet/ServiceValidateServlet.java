@@ -28,7 +28,7 @@ public class ServiceValidateServlet extends AbstractValidateServlet {
 
 
     public ServiceValidateServlet() {
-        super("/xml/serviceResponse.xml", "/xml/serviceResponseWithPGTIOU.xml");
+        super("xml/serviceResponse.xml", "xml/serviceResponseWithPGTIOU.xml");
     }
     
 }

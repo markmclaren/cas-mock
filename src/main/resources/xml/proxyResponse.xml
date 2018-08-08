@@ -2,7 +2,7 @@
   #%L
   CAS Mock
   %%
-  Copyright (C) 2016 Emory University
+  Copyright (C) 2016 - 2018 Emory University
   %%
   Licensed under the Apache License, Version 2.0 (the "License");
   you may not use this file except in compliance with the License.
@@ -17,7 +17,7 @@
   limitations under the License.
   #L%
   -->
-<cas:serviceResponse xmlns:cas='http://www.yale.edu/tp/cas'>
+<cas:serviceResponse xmlns:cas="http://www.yale.edu/tp/cas">
     <cas:proxySuccess>
         <cas:proxyTicket>PT-xxxxxxxxxxxxxxxxxxxxxxxxxxxx</cas:proxyTicket>
     </cas:proxySuccess>

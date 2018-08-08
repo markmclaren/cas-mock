@@ -27,6 +27,6 @@ package org.eurekaclinical.casmock.servlet;
 public class ProxyValidateServlet extends AbstractValidateServlet {
 
     public ProxyValidateServlet() {
-        super("/xml/proxyValidateResponse.xml", "/xml/proxyValidateResponseWithPGTIOU.xml");
+        super("xml/proxyValidateResponse.xml", "xml/proxyValidateResponseWithPGTIOU.xml");
     }
 }
