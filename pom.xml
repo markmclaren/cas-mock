@@ -53,6 +53,38 @@
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>license-maven-plugin</artifactId>
             </plugin>
+            <plugin>
+                <groupId>org.apache.tomcat.maven</groupId>
+                <artifactId>tomcat7-maven-plugin</artifactId>
+                <version>2.2</version>
+                <configuration>
+                    <httpsPort>8443</httpsPort>
+                    <keystoreFile>${project.build.directory}/.keystore</keystoreFile>
+                    <keystorePass>changeit</keystorePass>
+                </configuration>                
+            </plugin> 
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>keytool-maven-plugin</artifactId>
+                <version>1.5</version>
+                <executions>
+                    <execution>
+                        <phase>generate-resources</phase>
+                        <goals>
+                            <goal>generateKeyPair</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <keystore>${project.build.directory}/.keystore</keystore>
+                    <storepass>changeit</storepass>
+                    <keypass>changeit</keypass>
+                    <keyalg>RSA</keyalg>
+                    <alias>localhost</alias>
+                    <dname>CN=localhost</dname>
+                    <skipIfExist>true</skipIfExist>
+                </configuration>
+            </plugin>                       
         </plugins>
     </build>
     
