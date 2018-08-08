@@ -1,3 +1,5 @@
+Used and abused version by Mark McLaren
+
 # Mock Eureka! Clinical Central Authentication Service
 [Georgia Clinical and Translational Science Alliance (Georgia CTSA)](http://www.georgiactsa.org), [Emory University](http://www.emory.edu), Atlanta, GA
 
