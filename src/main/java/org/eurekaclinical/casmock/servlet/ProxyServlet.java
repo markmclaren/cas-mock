@@ -46,6 +46,7 @@ public class ProxyServlet extends HttpServlet {
     
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        resp.setContentType("text/xml;charset=UTF-8");        
         resp.getWriter().write(this.response);
     }
 }
