@@ -42,7 +42,7 @@
                 <groupId>org.jasig.maven</groupId>
                 <artifactId>maven-notice-plugin</artifactId>
                 <configuration>
-                    <noticeTemplate>etc/NOTICE.template</noticeTemplate>
+                    <noticeTemplate>${project.basedir}/etc/NOTICE.template</noticeTemplate>
                 </configuration>
             </plugin>
             <plugin>
