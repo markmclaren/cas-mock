@@ -1,4 +1,12 @@
-Used and abused version by Mark McLaren
+Originally forked from:
+
+https://github.com/eurekaclinical/cas-mock
+
+to:
+
+https://github.com/markmclaren/cas-mock
+
+and now moved to BitBucket
 
 # Mock Eureka! Clinical Central Authentication Service
 [Georgia Clinical and Translational Science Alliance (Georgia CTSA)](http://www.georgiactsa.org), [Emory University](http://www.emory.edu), Atlanta, GA
