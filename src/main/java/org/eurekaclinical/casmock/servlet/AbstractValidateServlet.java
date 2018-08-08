@@ -98,6 +98,7 @@ public abstract class AbstractValidateServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String pgtUrlStr = req.getParameter("pgtUrl");
+        resp.setContentType("text/xml;charset=UTF-8");
         if (pgtUrlStr == null) {
             resp.getWriter().write(this.response);
         } else {
